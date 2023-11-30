@@ -1,0 +1,121 @@
+@font-face {
+  font-family: BricolageGrotesque;
+  src: url('/BricolageGrotesque-VariableFont_opsz\,wdth\,wght.ttf');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .center-x {
+    @apply left-1/2 -translate-x-1/2;
+  }
+  .center-y {
+    @apply top-1/2 -translate-y-1/2;
+  }
+}
+
+:root {
+  font-family: BricolageGrotesque, Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #131316;
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  z-index: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+button,
+input {
+  outline: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: #ffffff;
+  }
+}
+
+.header {
+  box-shadow: 0px 2px 4px 0px rgba(45, 59, 67, 0.05),
+    0px 2px 6px 0px rgba(45, 59, 67, 0.06);
+}
+
+.avatar {
+  background: var(
+    --monochrome-black,
+    linear-gradient(139deg, #5c6670 2.33%, #131316 96.28%)
+  );
+}
+
+.date-picker-trigger[data-state='open'] {
+  /* background-color: red; */
+  border: 3px solid #131316;
+}
+
+.custom-shadow {
+  box-shadow: 0px 6px 12px 0px rgba(92, 115, 131, 0.08),
+    0px 4px 8px 0px rgba(92, 115, 131, 0.08);
+}
+
+.ellipsis-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.filter-dialog-overlay[data-state='open'],
+.filter-dialog-overlay[data-state='closed'] {
+  animation: fadeOut 700ms ease-in-out;
+}
+.filter-dialog-content[data-state='open'] {
+  transform: translateX(100%);
+  animation: slide-in 0.5s ease-out forwards;
+}
+
+.filter-dialog-content[data-state='closed'] {
+  transform: translateX(0);
+  animation: slide-out 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
